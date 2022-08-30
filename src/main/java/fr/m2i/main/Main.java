@@ -1,13 +1,20 @@
-package fr.m2i.logique;
+package fr.m2i.main;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import fr.m2i.Models.CalculatriceModel;
+import fr.m2i.Models.Operation;
+import fr.m2i.logique.Calculatrice;
+import fr.m2i.services.CalculatriceService;
+import fr.m2i.services.CalculatriceServiceImpl;
+
+
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Calculatrice calculatrice = new Calculatrice();
+		CalculatriceService calculatriceService = new CalculatriceServiceImpl(calculatrice);
 		
 		boolean keep = true;
 		do {	
@@ -26,23 +33,7 @@ public class Main {
 				System.out.println("Valeur Double b: ");
 				Double b = Double.parseDouble(sc.nextLine());
 				
-				Double rep = 0.0;
-				
-				if (methode.equals( "+")) {
-					rep = calculatrice.addition(a, b);
-				}
-				else if (methode.equals( "-")) {
-					rep = calculatrice.soustraction(a, b);
-				}
-				else if (methode.equals( "*")) {
-					rep = calculatrice.multiplication(a, b);
-				}
-				else if (methode.equals( "/")) {
-					rep = calculatrice.division(a, b);
-				}			
-				else if (methode.equals( "**")) {
-					rep = calculatrice.power(a, b);
-				}
+				Double rep = calculatriceService.calcul(new CalculatriceModel(a, b,Operation.getOperation(methode))).getResultat();
 					
 				System.out.println("a"+methode+"b= " + rep);
 			}
