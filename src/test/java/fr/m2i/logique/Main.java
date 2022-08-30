@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
+		Calculatrice calculatrice = new Calculatrice();
 		
 		boolean keep = true;
 		do {	
@@ -28,19 +29,19 @@ public class Main {
 				Double rep = 0.0;
 				
 				if (methode.equals( "+")) {
-					rep = Calculatrice.addition(a, b);
+					rep = calculatrice.addition(a, b);
 				}
 				else if (methode.equals( "-")) {
-					rep = Calculatrice.soustraction(a, b);
+					rep = calculatrice.soustraction(a, b);
 				}
 				else if (methode.equals( "*")) {
-					rep = Calculatrice.multiplication(a, b);
+					rep = calculatrice.multiplication(a, b);
 				}
 				else if (methode.equals( "/")) {
-					rep = Calculatrice.division(a, b);
+					rep = calculatrice.division(a, b);
 				}			
 				else if (methode.equals( "**")) {
-					rep = Calculatrice.power(a, b);
+					rep = calculatrice.power(a, b);
 				}
 					
 				System.out.println("a"+methode+"b= " + rep);
