@@ -52,6 +52,7 @@ public class FirstTest {
 	@BeforeEach
 	public void init() {
 		this.hw = new HelloWorld();
+		this.calculatrice = new Calculatrice();
 	}
 	
 	@DisplayName("TestClean")
